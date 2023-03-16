@@ -59,76 +59,105 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: OrientationBuilder(
         builder: (context, orientation) {
           return orientation == Orientation.landscape
-              ? Row(
-                  children: [
-                    Expanded(
-                      child: GestureDetector(
-                        onDoubleTap: () {
-                          isEmpty ? null : decrementCount();
-                        },
-                        onTap: () {
-                          setCount1();
-                        },
-                        child: Container(
-                          color: Colors.black,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Text(
-                                'Time 1',
-                                style: TextStyle(
-                                    fontSize: 20, color: Colors.white),
-                              ),
-                              const SizedBox(
-                                height: 16,
-                              ),
-                              Text(
-                                count.toString(),
-                                style: const TextStyle(
-                                    fontSize: 30, color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                        child: GestureDetector(
-                      onDoubleTap: () {
-                        isEmpty ? null : decrementCount2();
-                      },
-                      onTap: () {
-                        setCount2();
-                      },
-                      child: Container(
-                        color: Colors.blue,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text(
-                              'Time 2',
+              ? Stack(children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Align(
+                        alignment: Alignment.center,
+                        child: ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20))),
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.restart_alt,
+                              color: Colors.black,
+                            ),
+                            label: const Text(
+                              'Resetar placar',
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
-                            ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            Text(
-                              count2.toString(),
-                              style: const TextStyle(
-                                fontSize: 30,
-                                color: Colors.black,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            )),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: GestureDetector(
+                              onDoubleTap: () {
+                                isEmpty ? null : decrementCount();
+                              },
+                              onTap: () {
+                                setCount1();
+                              },
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Text(
+                                    'Time 1',
+                                    style: TextStyle(
+                                        fontSize: 40, color: Colors.white),
+                                  ),
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                  Text(
+                                    count.toString(),
+                                    style: const TextStyle(
+                                        fontSize: 50, color: Colors.white),
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                    ))
-                  ],
-                )
+                          ),
+                          const Divider(
+                            color: Colors.white,
+                          ),
+                          Expanded(
+                              child: GestureDetector(
+                            onDoubleTap: () {
+                              isEmpty ? null : decrementCount2();
+                            },
+                            onTap: () {
+                              setCount2();
+                            },
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  'Time 2',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 40,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                const SizedBox(
+                                  height: 16,
+                                ),
+                                Text(
+                                  count2.toString(),
+                                  style: const TextStyle(
+                                    fontSize: 50,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ))
+                        ],
+                      )
+                    ],
+                  ),
+                ])
               : Column(
                   children: [
                     Expanded(
@@ -144,11 +173,12 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.black,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               const Text(
                                 'Time 1',
                                 style: TextStyle(
-                                    fontSize: 20, color: Colors.white),
+                                    fontSize: 30, color: Colors.white),
                               ),
                               const SizedBox(
                                 height: 16,
@@ -156,7 +186,7 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 count.toString(),
                                 style: const TextStyle(
-                                    fontSize: 30, color: Colors.white),
+                                    fontSize: 40, color: Colors.white),
                               ),
                               const SizedBox(
                                 height: 25,
@@ -168,15 +198,22 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Align(
                       alignment: Alignment.center,
-                      child: Stack(
-                        children: [
-                          ElevatedButton.icon(
-                            label: const Text('Resetar placar'),
-                            icon: const Icon(Icons.back_hand_sharp),
-                            onPressed: () {},
+                      child: ElevatedButton.icon(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20))),
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.restart_alt,
+                            color: Colors.black,
                           ),
-                        ],
-                      ),
+                          label: const Text(
+                            'Resetar placar',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          )),
                     ),
                     Expanded(
                       child: GestureDetector(
@@ -188,14 +225,15 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Container(
                           width: MediaQuery.of(context).size.width,
-                          color: Colors.blue,
+                          color: Colors.black,
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 const Text(
                                   'Time 2',
                                   style: TextStyle(
-                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontSize: 30,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 const SizedBox(
@@ -204,8 +242,8 @@ class _HomePageState extends State<HomePage> {
                                 Text(
                                   count2.toString(),
                                   style: const TextStyle(
-                                    fontSize: 30,
-                                    color: Colors.black,
+                                    fontSize: 40,
+                                    color: Colors.white,
                                   ),
                                 ),
                               ]),
