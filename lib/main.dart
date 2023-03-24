@@ -54,12 +54,33 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void resetCount() {
+    setState(() {
+      count = 0;
+      count2 = 0;
+      print(count);
+      print(count2);
+    });
+  }
+
   bool get isEmpty => count == 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.green,
+        actions: [
+          IconButton(
+            onPressed: () {
+              resetCount();
+            },
+            icon: const Icon(Icons.restart_alt),
+          )
+        ],
+      ),
+      backgroundColor: Colors.green,
       body: OrientationBuilder(
         builder: (context, orientation) {
           return orientation == Orientation.landscape
@@ -67,28 +88,6 @@ class _HomePageState extends State<HomePage> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: ElevatedButton.icon(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20))),
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.restart_alt,
-                              color: Colors.black,
-                            ),
-                            label: const Text(
-                              'Resetar placar',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            )),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
                       Row(
                         children: [
                           Expanded(
@@ -105,7 +104,9 @@ class _HomePageState extends State<HomePage> {
                                   const Text(
                                     'Time 1',
                                     style: TextStyle(
-                                        fontSize: 40, color: Colors.white),
+                                        fontSize: 40,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                   const SizedBox(
                                     height: 16,
@@ -170,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Container(
                           width: MediaQuery.of(context).size.width,
-                          color: Colors.black,
+                          color: Colors.green,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -196,25 +197,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: ElevatedButton.icon(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20))),
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.restart_alt,
-                            color: Colors.black,
-                          ),
-                          label: const Text(
-                            'Resetar placar',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          )),
-                    ),
                     Expanded(
                       child: GestureDetector(
                         onDoubleTap: () {
@@ -225,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Container(
                           width: MediaQuery.of(context).size.width,
-                          color: Colors.black,
+                          color: Colors.blue,
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
