@@ -58,12 +58,11 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       count = 0;
       count2 = 0;
-      print(count);
-      print(count2);
     });
   }
 
   bool get isEmpty => count == 0;
+  bool get isEmpty2 => count2 == 0;
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +72,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.green,
         actions: [
           IconButton(
+            iconSize: 30,
             onPressed: () {
               resetCount();
             },
@@ -120,13 +120,16 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                           ),
-                          const Divider(
-                            color: Colors.white,
+                          const SizedBox(
+                            width: 100,
+                            child: Divider(
+                              color: Colors.white,
+                            ),
                           ),
                           Expanded(
                               child: GestureDetector(
                             onDoubleTap: () {
-                              isEmpty ? null : decrementCount2();
+                              isEmpty2 ? null : decrementCount2();
                             },
                             onTap: () {
                               setCount2();
@@ -197,17 +200,23 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
+                    const SizedBox(
+                      width: 100,
+                      child: Divider(
+                        color: Colors.white,
+                      ),
+                    ),
                     Expanded(
                       child: GestureDetector(
                         onDoubleTap: () {
-                          isEmpty ? null : decrementCount2();
+                          isEmpty2 ? null : decrementCount2();
                         },
                         onTap: () {
                           setCount2();
                         },
                         child: Container(
                           width: MediaQuery.of(context).size.width,
-                          color: Colors.blue,
+                          color: Colors.green,
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
