@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.blue,
         actions: [
           IconButton(
             iconSize: 30,
@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.blue,
       body: OrientationBuilder(
         builder: (context, orientation) {
           return orientation == Orientation.landscape
@@ -174,7 +174,7 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Container(
                           width: MediaQuery.of(context).size.width,
-                          color: Colors.green,
+                          color: Colors.blue,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -216,7 +216,7 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Container(
                           width: MediaQuery.of(context).size.width,
-                          color: Colors.green,
+                          color: Colors.blue,
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
